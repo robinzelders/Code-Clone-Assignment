@@ -28,11 +28,14 @@ COPY jsinspect jsinspect
 RUN npm install -g ./jsinspect
 
 # Increase the amount of memory nodejs can allocate, this
-# prevents JsInspect from running into the GC issues. 
+# prevents JsInspect from running into the GC issues.
 ENV NODE_OPTIONS=--max-old-space-size=4000
 
 WORKDIR /usr/jquery-data
 
-# Open a bash prompt, such that you can execute commands 
+COPY scripts scripts
+COPY snippets snippets
+
+# Open a bash prompt, such that you can execute commands
 # such as `cloc`. 
 ENTRYPOINT ["bash"]
