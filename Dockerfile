@@ -14,6 +14,11 @@ COPY jquery_releases.csv .
 
 RUN python prep.py
 
+RUN python -m pip install -U --force-reinstall pip
+RUN pip install seaborn
+RUN pip install matplotlib
+RUN pip install pandas
+
 RUN rm -rf jquery_releases.csv
 
 # Docker caches results, so if you want to add custom steps to this dockerfile
