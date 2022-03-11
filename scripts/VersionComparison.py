@@ -121,7 +121,7 @@ class VersionComparison:
             number_of_lines = 0
             for line in output.splitlines():
                 if 'JavaScript' in line or 'javascript' in line or 'Javascript' in line:
-                    number_of_lines += int(line.split()[3]) + int(line.split()[4])
+                    number_of_lines += int(line.split()[4])
             self.total_lines = max(self.total_lines, number_of_lines)
 
     def compare(self, threshold = 33):
